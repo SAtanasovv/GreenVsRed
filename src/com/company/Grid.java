@@ -1,24 +1,19 @@
 package com.company;
 
 public class Grid {
+
+    // Global variables
     private int widthX;
     private int heightY;
     private String[][] mainGrid;
 
-    public Grid() {
-
-    }
-
+    // Class constructor
     public Grid(int widthX, int heightY) {
         this.widthX = widthX;
         this.heightY = heightY;
-        //this.mainGrid = new String[heightY][widthX];
 
     }
-
-    public void setWidthX(int widthX) {
-        this.widthX = widthX;
-    }
+    //Getters and Setters
 
     public int getWidthX() {
         return widthX;
@@ -28,43 +23,26 @@ public class Grid {
         return heightY;
     }
 
-    public void setMainGrid(String[][] mainGrid) {
-        this.mainGrid = mainGrid;
-    }
     public String[][] getMainGrid() {
         return mainGrid;
     }
 
+/*
+* The method generateGrid is used to create Generation Zero (0th Grid)
+**/
     public void generateGrid() {
 
-        if(heightY>widthX){
-
-            this.mainGrid=new String[heightY][heightY];
-            for (int i = 0; i < heightY; i++) {
-                for (int j = 0; j < widthX; j++) {
-                    mainGrid[i][j] = generateRandomZeroOrOne();
-                }
-
-            }
-            for (int i = 0; i < heightY; i++) {
-                for (int j = widthX; j < heightY; j++) {
-                    mainGrid[i][j] = " ";
-                }
-
-            }
-            setWidthX(heightY);
-        }else {
             this.mainGrid=new String[heightY][widthX];
             for (int i = 0; i < heightY; i++) {
                 for (int j = 0; j < widthX; j++) {
                     mainGrid[i][j] = generateRandomZeroOrOne();
                 }
-
             }
-        }
-
     }
 
+    /*
+    * The method showGrid is used to print the generated Grid in the console
+    * */
     public void showGrid() {
         System.out.println("\n Generation zero");
         for (int i = 0; i < heightY; i++) {
@@ -77,6 +55,7 @@ public class Grid {
 
     }
 
+    // This simple method creates random 0's and 1's
     public String generateRandomZeroOrOne() {
         return String.valueOf(Math.round(Math.random()));
     }
